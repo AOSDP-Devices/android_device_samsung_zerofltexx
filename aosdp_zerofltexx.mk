@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2011 The Android Open Source Project
+# Copyright (C) 2019 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,4 +14,15 @@
 # limitations under the License.
 #
 
-add_lunch_combo aosdp_zerofltexx-userdebug
+# Initialise device config
+$(call inherit-product, device/samsung/zerofltexx/full_zerofltexx.mk)
+
+# Inherit some common AOSDP stuff.
+$(call inherit-product, vendor/aosdp/config/common_full_phone.mk)
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME="zerofltexx" \
+    TARGET_DEVICE="zeroflte"
+
+PRODUCT_NAME := aosdp_zerofltexx
+PRODUCT_DEVICE := zerofltexx
